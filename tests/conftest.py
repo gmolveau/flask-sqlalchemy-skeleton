@@ -6,7 +6,6 @@ load_dotenv()
 
 from app import create_app
 from app.database import db
-from app.cli import reset_db
 
 
 @pytest.fixture(scope="session")
@@ -25,11 +24,12 @@ def client():
     client = test_app.test_client()
 
     with test_app.app_context():
-        reset_db()
+        db.drop_all()
+        db.create_all()
 
     yield client
 
     # teardown
     with test_app.app_context():
         pass
-        #drop_db()
+        #db.drop_all()

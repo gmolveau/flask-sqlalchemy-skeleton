@@ -2,7 +2,7 @@
 
 from app.database import db
 
-def test_db_tables(client, , global_data):
+def test_db_tables(client, global_data):
     # rv = client.get('/')
     # rv = client.post("/api/v1/signup", json={
     #     'username': 'testuser', 'password': '', 'email': 'test_user@mail.com'
